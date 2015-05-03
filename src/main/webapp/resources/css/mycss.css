@@ -1,0 +1,16 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 19, 2015, 2:10:43 PM
+    Author     : gxh19_000
+*/
+
+.hero {
+padding-bottom: 50px;
+background-image: url("http://foundation.zurb.com/assets/img/develop/template-themes/dogbanner.jpg");
+background-size: cover;
+box-shadow: inset 0px 0px 0 2000px rgba(0,0,0,0.2);
+}
