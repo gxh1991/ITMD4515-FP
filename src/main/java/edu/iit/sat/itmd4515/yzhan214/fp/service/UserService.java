@@ -16,15 +16,27 @@ import javax.ejb.Stateless;
 @Stateless
 public class UserService extends AbstractService<User>{
 
+    /** Constructor
+     *
+     */
     public UserService() {
         super(User.class);
     }
 
+    /**
+     *
+     * @return return all users
+     */
     @Override
     public List<User> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param username
+     * @return return user
+     */
     @Override
     public User findByUsername(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

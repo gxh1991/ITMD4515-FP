@@ -46,12 +46,16 @@ public class Doctor extends Staff implements Serializable{
     private List<Hospital> hospitals = new ArrayList<>();
     
     @OneToMany
+    @JoinColumn(name="DOCTOR_ID",referencedColumnName = "ID")
     private List<Reservation> reservations = new ArrayList<>();
     
     @OneToOne
     @JoinColumn(name="USERNAME")
     private User user;
 
+    /** 
+     *  Constructor
+     */
     public Doctor() {
     }
     /**
@@ -73,13 +77,22 @@ public class Doctor extends Staff implements Serializable{
         this.profile = profile;
     }
     
-    
-        
+    /**
+     *
+     * @param firstname
+     * @param lastname
+     * @param joinDate
+     * @param title
+     */
     public Doctor(String firstname,String lastname,Date joinDate,String title) {
         super(firstname,lastname,joinDate);
         this.title = title;
     }
     
+    /**
+     *
+     * @return list of hospitals
+     */
     public List<Hospital> getHospitals() {
         return hospitals;
     }
@@ -102,37 +115,66 @@ public class Doctor extends Staff implements Serializable{
         this.title = title;
     }
 
-
+    /**
+     *
+     * @return value of email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @return the value of phone
+     */
     public String getPhone() {
         return phone;
     }
 
+    /**
+     *
+     * @return the value of profile
+     */
     public String getProfile() {
         return profile;
     }
 
-
-
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     *
+     * @param phone
+     */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
+    /**
+     *
+     * @param profile
+     */
     public void setProfile(String profile) {
         this.profile = profile;
     }
 
+    /**
+     *
+     * @param hospitals
+     */
     public void setHospitals(List<Hospital> hospitals) {
         this.hospitals = hospitals;
     }
     
+    /**
+     *
+     * @param h
+     */
     public void addHospital(Hospital h) {
         if(!this.hospitals.contains(h)) {
             hospitals.add(h);
@@ -147,14 +189,40 @@ public class Doctor extends Staff implements Serializable{
 //        this.reservations = reservations;
 //    }
 
+    /**
+     *
+     * @param user
+     */
+    
     public void setUser(User user) {
         this.user = user;
     }
 
+    /**
+     *
+     * @return
+     */
     public User getUser() {
         return user;
     }
     
+    /**
+     *
+     * @return
+     */
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+    
+    /**
+     *
+     * @param re
+     */
+    public void addReservation(Reservation re) {
+        if(!reservations.contains(re)) {
+            reservations.add(re);
+        }
+    }
     
     
     @Override

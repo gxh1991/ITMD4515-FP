@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.iit.sat.itmd4515.yzhan214.fp.web;
+package edu.iit.sat.itmd4515.yzhan214.fp.web.hospital;
 
 
+import edu.iit.sat.itmd4515.yzhan214.fp.web.hospital.AbstractJSFBean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -94,7 +95,7 @@ public class LoginBean extends AbstractJSFBean{
             facesContext.addMessage(null, new FacesMessage("Bad Logout", "Detail:There was a problem with the logout"));
             return "/error.xhtml";
         }
-        return "/logout.xhtml";
+        return "/index.xhtml";
     }
     
     public String getRemoteUser() {

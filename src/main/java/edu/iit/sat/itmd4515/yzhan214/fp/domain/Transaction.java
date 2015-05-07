@@ -11,8 +11,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -35,11 +33,10 @@ public class Transaction extends BaseEntity implements Serializable{
     private String message;
     @Temporal(TemporalType.DATE)
     private Date pDate;
-    
-    @ManyToOne
-    @JoinColumn(name="PETOWNER_ID")
-    private PetOwner petOwner;
-    
+
+    /**
+     *  Constructor
+     */
     public Transaction() {
     }
 
@@ -57,26 +54,50 @@ public class Transaction extends BaseEntity implements Serializable{
         this.pDate = GregorianCalendar.getInstance().getTime();
     }
 
+    /**
+     *
+     * @return  the amount of payment
+     */
     public BigDecimal getPayment() {
         return payment;
     }
 
+    /**
+     *
+     * @return the value of message
+     */
     public String getMessage() {
         return message;
     }
 
+    /**
+     *
+     * @return the payment date
+     */
     public Date getpDate() {
         return pDate;
     }
 
+    /**
+     *
+     * @param payment
+     */
     public void setPayment(BigDecimal payment) {
         this.payment = payment;
     }
 
+    /**
+     *
+     * @param message
+     */
     public void setMessage(String message) {
         this.message = message;
     }
 
+    /**
+     *
+     * @param pDate
+     */
     public void setpDate(Date pDate) {
         this.pDate = pDate;
     }

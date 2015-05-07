@@ -20,18 +20,34 @@ public class Name implements Serializable {
     @Column(name="lastname")
     private String lastName;
 
+    /**
+     *
+     * @return the value of first name
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     *
+     * @return the value of last name
+     */
     public String getLastName() {
         return lastName;
     }
 
+    /**
+     *
+     * @param firstName
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    /**
+     *
+     * @param lastName
+     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }

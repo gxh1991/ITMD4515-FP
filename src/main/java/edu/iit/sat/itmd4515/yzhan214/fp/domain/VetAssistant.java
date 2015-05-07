@@ -41,6 +41,9 @@ public class VetAssistant extends Staff implements Serializable{
     @JoinColumn(name="USERNAME")
     private User user;
     
+    /**
+     *  Constructor
+     */
     public VetAssistant() {
     }
      /**
@@ -58,10 +61,18 @@ public class VetAssistant extends Staff implements Serializable{
         this.phone = phone;
     }
     
+    /**
+     *
+     * @return the instance of assistant's hospital
+     */
     public Hospital getHospital() {
         return hospital;
     }
     
+    /**
+     *
+     * @param hospital
+     */
     public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
@@ -104,10 +115,18 @@ public class VetAssistant extends Staff implements Serializable{
         this.phone = phone;
     }
 
+    /**
+     *
+     * @return the assistant's user
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     *
+     * @param user
+     */
     public void setUser(User user) {
         this.user = user;
     }

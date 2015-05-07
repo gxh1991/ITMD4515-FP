@@ -16,15 +16,27 @@ import javax.ejb.Stateless;
 @Stateless
 public class GroupService extends AbstractService<Group> {
 
+    /**
+     *
+     */
     public GroupService() {
         super(Group.class);
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public List<Group> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @param username
+     * @return
+     */
     @Override
     public Group findByUsername(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -21,36 +21,74 @@ public abstract class AbstractService<T> {
     
     private final Class<T> entityClass;
 
+    /**
+     *
+     * @param entityClass
+     */
     public AbstractService(Class<T> entityClass) {
         this.entityClass = entityClass;
     }
 
+    /**
+     *
+     * @return
+     */
     public EntityManager getEntityManager() {
         return em;
     }
     
+    /**
+     *
+     * @param entity
+     */
     public void create(T entity) {
         em.persist(entity);
     }
     
+    /**
+     *
+     * @param id
+     * @return
+     */
     public T find(Object id) {
         return em.find(entityClass, id);
     }
     
-     public abstract List<T> findAll();
+    /**
+     *
+     * @return
+     */
+    public abstract List<T> findAll();
 
+    /**
+     *
+     * @param entity
+     */
     public void update(T entity) {
         em.merge(entity);
     }
 
+    /**
+     *
+     * @param entity
+     */
     public void delete(T entity) {
         em.remove(em.merge(entity));
     }
 
+    /**
+     *
+     * @param id
+     */
     public void deleteById(Object id) {
         em.remove(em.getReference(entityClass, id));
     }
     
+    /**
+     *
+     * @param username
+     * @return
+     */
     public abstract T findByUsername(String username);
     
 }

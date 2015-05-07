@@ -10,8 +10,24 @@ package edu.iit.sat.itmd4515.yzhan214.fp.domain;
  * @author ln1878
  */
 public enum PetClass {
+
+    /**
+     *
+     */
     Dog,
+
+    /**
+     *
+     */
     Cat,
+
+    /**
+     *
+     */
     Bird,
+
+    /**
+     *
+     */
     PocketPet
 }

@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.iit.sat.itmd4515.yzhan214.fp.web;
+package edu.iit.sat.itmd4515.yzhan214.fp.web.hospital;
 
 import edu.iit.sat.itmd4515.yzhan214.fp.domain.Doctor;
 import edu.iit.sat.itmd4515.yzhan214.fp.service.DoctorService;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -24,13 +25,12 @@ public class DoctorBean extends AbstractJSFBean {
     
     private static final Logger LOG = Logger.getLogger(DoctorBean.class.getName());
     private Doctor doctor;
-    @Inject
-    private LoginBean loginBean;
-    @EJB
-    private DoctorService doctorService;
+    @Inject private LoginBean loginBean;
+    @EJB private DoctorService doctorService;
     
     public DoctorBean() {
         super();
+        LOG.info("Inside DoctorBean.Constructor");
     }
     
     @PostConstruct
@@ -41,7 +41,7 @@ public class DoctorBean extends AbstractJSFBean {
     }
     
     public String executeUpdate() {
-        LOG.info("Inside DoctorBean.executeUpdate() with " + doctor.toString());
+        LOG.log(Level.INFO, "Inside DoctorBean.executeUpdate() with '{'0'}'", doctor.toString());
         return loginBean.getPortalPathByRole("/welcome.xhtml");
     }
 

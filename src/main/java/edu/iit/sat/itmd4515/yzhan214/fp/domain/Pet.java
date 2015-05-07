@@ -31,6 +31,9 @@ public class Pet extends BaseEntity implements Serializable{
     @ManyToOne
     private PetOwner petOwner;
 
+    /**
+     *  Constructor
+     */
     public Pet() {
     }
     /**
@@ -64,18 +67,34 @@ public class Pet extends BaseEntity implements Serializable{
         this.name = name;
     }
 
+    /**
+     *
+     * @return the value of pet class
+     */
     public PetClass getPetClass() {
         return petClass;
     }
 
+    /**
+     *
+     * @param petClass
+     */
     public void setPetClass(PetClass petClass) {
         this.petClass = petClass;
     }
 
+    /**
+     *
+     * @return return the value of pet owner
+     */
     public PetOwner getPetOwner() {
         return petOwner;
     }
 
+    /**
+     *
+     * @param petOwner
+     */
     public void setPetOwner(PetOwner petOwner) {
         this.petOwner = petOwner;
     }

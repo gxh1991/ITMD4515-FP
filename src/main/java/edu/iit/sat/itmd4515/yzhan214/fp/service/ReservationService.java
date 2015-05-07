@@ -5,43 +5,43 @@
  */
 package edu.iit.sat.itmd4515.yzhan214.fp.service;
 
-import edu.iit.sat.itmd4515.yzhan214.fp.domain.Pet;
+import edu.iit.sat.itmd4515.yzhan214.fp.domain.Reservation;
 import java.util.List;
 import javax.ejb.Stateless;
-import javax.inject.Named;
 
 /**
  *
  * @author ln1878
  */
-@Named
 @Stateless
-public class PetService extends AbstractService<Pet>{
+public class ReservationService extends AbstractService<Reservation>{
 
-    /**
+    /**Constructor
      *
      */
-    public PetService() {
-        super(Pet.class);
+    public ReservationService() {
+        super(Reservation.class);
     }
 
-    /**
+    /**find all the reservations
      *
-     * @return
+     * @return return all reservations
      */
     @Override
-    public List<Pet> findAll() {
-        return getEntityManager().createNamedQuery("Pet.findAll", Pet.class).getResultList();
+    public List<Reservation> findAll() {
+        return getEntityManager().createNamedQuery("Reservation.findAll", Reservation.class).getResultList();
     }
 
     /**
      *
      * @param username
-     * @return
+     * @return return reservation
      */
     @Override
-    public Pet findByUsername(String username) {
+    public Reservation findByUsername(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+   
     
 }

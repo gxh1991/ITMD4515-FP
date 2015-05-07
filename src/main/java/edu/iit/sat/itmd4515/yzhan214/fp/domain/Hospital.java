@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -34,10 +35,14 @@ public class Hospital extends BaseEntity implements Serializable {
     
     @ManyToMany(mappedBy = "hospitals")
     private List<Doctor> docs = new ArrayList<>();
-
     
+    @OneToMany
+    @JoinColumn(name="HOSPITAL_ID",referencedColumnName = "ID")
+    private List<Reservation> reservations = new ArrayList<>();    
 
-    
+    /**
+     *  Constructor
+     */
     public Hospital() {
     }
     /**
@@ -69,10 +74,18 @@ public class Hospital extends BaseEntity implements Serializable {
         this.name = name;
     }
     
+    /**
+     *
+     * @param vas
+     */
     public void setVas(List<VetAssistant> vas) {
         this.vas = vas;
     }
     
+    /**
+     *
+     * @return
+     */
     public List<VetAssistant> getVas() {
         return vas;
     }
@@ -94,6 +107,24 @@ public class Hospital extends BaseEntity implements Serializable {
     public void setDocs(List<Doctor> docs) {
         this.docs = docs;
     }
+    
+    /**
+     *
+     * @return
+     */
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+    
+    /**
+     *
+     * @param re
+     */
+    public void addReservation(Reservation re) {
+        if(!reservations.contains(re)) {
+            reservations.add(re);
+        }
+    }
 
     @Override
     public String toString() {
@@ -101,6 +132,8 @@ public class Hospital extends BaseEntity implements Serializable {
     }
 
 
+
+    
     
     
 }

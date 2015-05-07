@@ -35,10 +35,19 @@ public abstract class Staff extends BaseEntity implements Serializable {
     @Embedded
     private Name name;
     
+    /**
+     *  Constructor
+     */
     public Staff() {
         name = new Name();
     }
     
+    /**
+     *
+     * @param firstName
+     * @param lastName
+     * @param joinDate
+     */
     public Staff(String firstName, String lastName,Date joinDate) {
         this.joinDate = joinDate;
         name = new Name();

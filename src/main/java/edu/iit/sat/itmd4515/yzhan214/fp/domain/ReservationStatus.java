@@ -11,7 +11,19 @@ package edu.iit.sat.itmd4515.yzhan214.fp.domain;
  * 
  */
 public enum ReservationStatus {
+
+    /**
+     *
+     */
     Active,  //Reservation made but no treatment yet
-    Expired,    //Reservation expired
-    In_Progress //Pet is being treated
+
+    /**
+     *
+     */
+        Expired,    //Reservation expired
+
+    /**
+     *
+     */
+        In_Progress //Pet is being treated
 }

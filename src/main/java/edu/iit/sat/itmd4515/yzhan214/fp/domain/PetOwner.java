@@ -43,12 +43,9 @@ public class PetOwner extends BaseEntity implements Serializable{
     @JoinColumn(name="USERNAME")
     private User user;
     
-    @OneToMany(mappedBy = "petOwner")
-    private List<Reservation> reservations;
-    
-    @OneToMany(mappedBy="petOwner")
-    private List<Transaction> transactions;
-    
+    /**
+     *  Constructor
+     */
     public PetOwner() {
     }
      /**
@@ -72,48 +69,84 @@ public class PetOwner extends BaseEntity implements Serializable{
         return name;
     }
     
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     } 
 
-
-
+    /**
+     *
+     * @return the value of phone number
+     */
     public String getPhone() {
         return phone;
     }
 
+    /**
+     *
+     * @return value of address 
+     */
     public String getAddress() {
         return address;
     }
 
-
+    /**
+     *
+     * @param phone
+     */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
+    /**
+     *
+     * @param address
+     */
     public void setAddress(String address) {
         this.address = address;
     }
 
-
+    /**
+     *
+     * @return list of pets
+     */
     public List<Pet> getPets() {
         return pets;
     }
 
+    /**
+     *
+     * @param pets
+     */
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
     
+    /**
+     *
+     * @param p
+     */
     public void addPet(Pet p) {
         if(!pets.contains(p)) {
             pets.add(p);
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public User getUser() {
         return user;
     }
 
+    /**
+     *
+     * @param user
+     */
     public void setUser(User user) {
         this.user = user;
     }

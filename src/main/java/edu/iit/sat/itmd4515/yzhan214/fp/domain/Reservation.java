@@ -10,8 +10,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -34,13 +32,12 @@ public class Reservation extends BaseEntity implements Serializable{
     private String description;
     @Enumerated(EnumType.STRING)
     ReservationStatus rs;
-    @ManyToOne
-    @JoinColumn(name="DOCTOR_ID")
-    private Doctor doctor;
-    @ManyToOne
-    @JoinColumn(name="PETOWNER_ID")
-    private PetOwner petOwner;
+//    @ManyToOne
+//    private Doctor doctor;
+    
 
+    
+    
     /**
     * Constructor.
     * 
@@ -54,33 +51,56 @@ public class Reservation extends BaseEntity implements Serializable{
         rs = ReservationStatus.Active;
     }
 
+    /**
+     *  Constructor
+     */
     public Reservation() {
     }
     
-    
-    
-    
+    /**
+     *
+     * @return the date of reservation
+     */
     public Date getrDate() {
         return rDate;
     }
 
+    /**
+     *
+     * @param rDate
+     */
     public void setrDate(Date rDate) {
         this.rDate = rDate;
     }
 
+    /**
+     *
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     *
+     * @param description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
     
-    
+    /**
+     *
+     * @return the value of reservation status
+     */
     public ReservationStatus getRs() {
         return rs;
     }
 
+    /**
+     *
+     * @param rs
+     */
     public void setRs(ReservationStatus rs) {
         this.rs = rs;
     }
