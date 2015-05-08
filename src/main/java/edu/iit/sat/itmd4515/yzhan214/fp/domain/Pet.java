@@ -82,6 +82,10 @@ public class Pet extends BaseEntity implements Serializable{
     public void setPetClass(PetClass petClass) {
         this.petClass = petClass;
     }
+    
+    public void setPetClass(String petClass) {
+        this.petClass = PetClass.valueOf(petClass);
+    }    
 
     /**
      *

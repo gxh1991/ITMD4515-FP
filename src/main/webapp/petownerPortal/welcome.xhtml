@@ -14,8 +14,12 @@
 
     <ui:define name="body">
         <div class="large-6 columns">
+            <ezcomp:pets pets="#{petService.findAll()}" readonly="false"/>
+        </div>
+        <div class="large-6 columns">
             <ezcomp:petowner petOwner="#{petOwnerBean.petOwener}" readonly="false" action="#{petOwnerBean.executeUpdate()}"/>
         </div>
+        
     </ui:define>
 
 </ui:composition>

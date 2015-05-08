@@ -3,11 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:cc="http://xmlns.jcp.org/jsf/composite"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <!-- INTERFACE -->
     <cc:interface>
         <cc:attribute name="pets" required="true"/>
+        <cc:attribute name="readonly" type="java.lang.Boolean" required="false" default="true" />
     </cc:interface>
 
     <!-- IMPLEMENTATION -->
@@ -24,7 +26,14 @@
             <h:column>
                 <f:facet name="header"><h:outputText value="PetClass"/></f:facet>
                 <h:outputText value="#{pet.petClass}"/>
-            </h:column>            
+            </h:column>
+            <h:column>
+                <h:form><h:commandLink action="#{petBean.doUpdate(pet)}" value="Update"/></h:form>
+            </h:column>
+            <h:column>
+                <h:form><h:commandLink action="#{petBean.doDelete(pet)}" value="Delete"/></h:form>
+            </h:column>
+                        
         </h:dataTable>
     </cc:implementation>
 </html>
