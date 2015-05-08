@@ -7,6 +7,8 @@ package edu.iit.sat.itmd4515.yzhan214.fp.web.hospital;
 
 import edu.iit.sat.itmd4515.yzhan214.fp.domain.Pet;
 import edu.iit.sat.itmd4515.yzhan214.fp.domain.PetClass;
+import edu.iit.sat.itmd4515.yzhan214.fp.domain.PetOwner;
+import edu.iit.sat.itmd4515.yzhan214.fp.service.PetOwnerService;
 import edu.iit.sat.itmd4515.yzhan214.fp.service.PetService;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,11 +30,14 @@ public class PetBean extends AbstractJSFBean {
 
     private static final Logger LOG = Logger.getLogger(PetBean.class.getName());
     private Pet pet;
+    private PetOwner petOwner;
     private String petclass_;
     @EJB
     private PetService petService;
     @Inject
     private LoginBean loginBean;
+    @EJB
+    private PetOwnerService petOwnerService;
 
     public PetBean() {
     }
@@ -41,6 +46,12 @@ public class PetBean extends AbstractJSFBean {
     private void postConstruct() {
         super.postContruct();
         LOG.info("Inside PetBean.postConstruct");
+        pet = new Pet();
+    }
+    
+    public String doCreate() {
+        pet = new Pet();
+        return "/petownerPortal/pet.xhtml";
     }
 
     public String doUpdate(Pet pet) {
@@ -56,7 +67,9 @@ public class PetBean extends AbstractJSFBean {
     public String executeSave() {
         if (this.pet.getId() != null) {
             LOG.info("Executing update on " + this.pet.toString());
-//            petService.update(pet);
+            petOwner = petOwnerService.findByUsername(loginBean.getRemoteUser());
+            pet.setPetOwner(petOwner);
+            petService.update(pet);
             return loginBean.getPortalPathByRole("/welcome.xhtml");
         } else {
             LOG.info("Creating " + this.pet.toString());

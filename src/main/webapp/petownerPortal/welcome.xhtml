@@ -13,6 +13,8 @@
     </ui:define>
 
     <ui:define name="body">
+        <h2>Your Pets:</h2>
+        <h:form><h:commandLink action="#{petBean.doCreate()}" value="Create"/></h:form>
         <div class="large-6 columns">
             <ezcomp:pets pets="#{petService.findAll()}" readonly="false"/>
         </div>

@@ -91,7 +91,6 @@ public class DatabasePopulator {
         ryan.addGroup(petOwnerG);
         zhang.addGroup(adminG);
         
-        doctorG.addUser(brian);
         petOwnerG.addUser(yiming);
         petOwnerG.addUser(ryan);
         assistantG.addUser(brian);

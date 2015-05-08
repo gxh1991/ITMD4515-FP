@@ -62,6 +62,7 @@ public class LoginBean extends AbstractJSFBean{
     }
     
     public String getPortalPathByRole(String path) {
+        LOG.info("Inside LoginBean getPortal");
         if (isAdmin()) {
             return "/admin" + path;
         } else if (isDoctor()) {

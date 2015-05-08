@@ -47,6 +47,7 @@ public class PetOwnerBean extends AbstractJSFBean{
     
     public String executeUpdate() {
         LOG.info("Inside PetOwnerBean.executeUpdate() with " + petOwener.toString());
+        petOwnerService.update(petOwener);
         return loginBean.getPortalPathByRole("/welcome.xhtml");
     }
 
