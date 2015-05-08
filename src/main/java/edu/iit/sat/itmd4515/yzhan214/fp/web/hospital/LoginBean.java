@@ -34,7 +34,9 @@ public class LoginBean extends AbstractJSFBean{
     @NotNull(message = "You shall not pass without a password!")
     @Size(min = 5, message = "Password must be at least 5 characters in length.")
     private String password;
- 
+    
+
+    
     public LoginBean() {
     }
     

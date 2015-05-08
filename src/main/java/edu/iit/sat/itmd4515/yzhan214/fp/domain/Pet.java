@@ -21,7 +21,7 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
     @NamedQuery(name="Pet.findByName",query="select r from Pet r where r.name= :name"),
     @NamedQuery(name="Pet.findById",query="select r from Pet r where r.id= :id"),
-    @NamedQuery(name = "Pet.findAll", query = "select r from Pet r")
+    @NamedQuery(name = "Pet.findAll", query = "select r from Pet r"),
 })
 public class Pet extends BaseEntity implements Serializable{
    

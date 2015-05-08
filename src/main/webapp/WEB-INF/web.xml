@@ -57,7 +57,7 @@
         <web-resource-collection>
             <web-resource-name>Petowner Portal</web-resource-name>
             <description>Petowner Portal</description>
-            <url-pattern>/petowner/*</url-pattern>
+            <url-pattern>/petownerPortal/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description>Petowner Only</description>

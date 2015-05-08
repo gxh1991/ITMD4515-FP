@@ -43,5 +43,5 @@ public class PetService extends AbstractService<Pet>{
     public Pet findByUsername(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+        
 }

@@ -43,7 +43,16 @@ public class BaseEntity {
         lastUpdated = GregorianCalendar.getInstance().getTime();
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public void setLastUpdated(Date lastUpdated) {
+        this.lastUpdated = lastUpdated;
+    }
+
+    
+    
     public Long getId() {
         return id;
     }
