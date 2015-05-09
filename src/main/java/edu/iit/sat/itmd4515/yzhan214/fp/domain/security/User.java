@@ -41,14 +41,26 @@ public class User implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "GROUPNAME"))
     private List<Group> groups = new ArrayList<>();
 
+    /**
+     *
+     * @param userName
+     * @param password
+     */
     public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
 
+    /**
+     *
+     */
     public User() {
     }
 
+    /**
+     *
+     * @param g
+     */
     public void addGroup(Group g) {
         if (!this.groups.contains(g)) {
             this.groups.add(g);
@@ -58,6 +70,10 @@ public class User implements Serializable {
         }
     }
 
+    /**
+     *
+     * @param enabled
+     */
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
@@ -98,10 +114,18 @@ public class User implements Serializable {
         this.password = password;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Group> getGroups() {
         return groups;
     }
 
+    /**
+     *
+     * @param groups
+     */
     public void setGroups(List<Group> groups) {
         this.groups = groups;
     }
@@ -113,6 +137,10 @@ public class User implements Serializable {
         this.password = digestPassword;
     }
 
+    /**
+     *
+     * @return
+     */
     public Boolean isEnabled() {
         return enabled;
     }

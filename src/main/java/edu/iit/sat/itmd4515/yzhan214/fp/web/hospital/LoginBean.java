@@ -35,8 +35,9 @@ public class LoginBean extends AbstractJSFBean{
     @Size(min = 5, message = "Password must be at least 5 characters in length.")
     private String password;
     
-
-    
+    /**
+     *
+     */
     public LoginBean() {
     }
     
@@ -45,22 +46,43 @@ public class LoginBean extends AbstractJSFBean{
         super.postContruct();
     }
     
+    /**
+     *
+     * @return
+     */
     public boolean isAdmin() {
         return facesContext.getExternalContext().isUserInRole("admin");
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isDoctor() {
         return facesContext.getExternalContext().isUserInRole("doctor");
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isAssistant() {
         return facesContext.getExternalContext().isUserInRole("vetassistant");
     } 
     
+    /**
+     *
+     * @return
+     */
     public boolean isPetOwner() {
         return facesContext.getExternalContext().isUserInRole("petowner");
     }
     
+    /**
+     *
+     * @param path
+     * @return
+     */
     public String getPortalPathByRole(String path) {
         LOG.info("Inside LoginBean getPortal");
         if (isAdmin()) {
@@ -77,6 +99,10 @@ public class LoginBean extends AbstractJSFBean{
         }
     }   
     
+    /**
+     *
+     * @return
+     */
     public String doLogin() {
         HttpServletRequest req = (HttpServletRequest) facesContext.getExternalContext().getRequest();
         try {
@@ -89,6 +115,10 @@ public class LoginBean extends AbstractJSFBean{
         return getPortalPathByRole("/welcome.xhtml");
     }
 
+    /**
+     *
+     * @return
+     */
     public String doLogout() {
         HttpServletRequest req = (HttpServletRequest) facesContext.getExternalContext().getRequest();
         try {
@@ -101,6 +131,10 @@ public class LoginBean extends AbstractJSFBean{
         return "/index.xhtml";
     }
     
+    /**
+     *
+     * @return
+     */
     public String getRemoteUser() {
         return facesContext.getExternalContext().getRemoteUser();
     }

@@ -42,6 +42,10 @@ public class PetOwner extends BaseEntity implements Serializable{
     @OneToOne
     @JoinColumn(name="USERNAME")
     private User user;
+
+    @OneToMany
+    @JoinColumn(name="PETOWNER_ID",referencedColumnName = "ID")
+    private List<Reservation> reservations = new ArrayList<>();
     
     /**
      *  Constructor
@@ -149,6 +153,22 @@ public class PetOwner extends BaseEntity implements Serializable{
      */
     public void setUser(User user) {
         this.user = user;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    /**
+     *
+     * @param reservations
+     */
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
     
     

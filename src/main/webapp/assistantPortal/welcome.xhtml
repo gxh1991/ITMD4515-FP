@@ -13,7 +13,18 @@
     </ui:define>
 
     <ui:define name="body">
-        body
+        <div class="large-6 columns">
+            <ezcomp:petowners petowners="#{petOwnerService.findAll()}"/>
+        </div>
+        
+        <div class="large-6 columns">
+            <h:form><h:commandLink action="#{reservationBean.doCreate()}" value="Create"/></h:form>
+            <ezcomp:reservations reservations="#{reservationService.findAll()}" readonly="false"/>
+        </div>
+        <h2>Your information</h2>
+        <ezcomp:vetassistant vetAssistant="#{vetAssistantBean.vetAssistant}" readonly="false" action="#{vetAssistantBean.executeUpdate()}"/>
     </ui:define>
+    
+    
 
 </ui:composition>

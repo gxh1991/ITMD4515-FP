@@ -27,15 +27,46 @@ public class VetAssistantBean extends AbstractJSFBean{
     @EJB VetAssistantService vetAssistantService;
     @Inject LoginBean loginBean;
     
+    /**
+     *
+     */
     public VetAssistantBean() {
     }
     
     @PostConstruct
     private void postConstruct() {
         super.postContruct();
-        vetAssistant = new VetAssistant();
+        vetAssistant = vetAssistantService.findByUsername(loginBean.getRemoteUser());
         LOG.info("Inside VetAssistantBean.postConstruct");
     }
+
+    /**
+     *
+     * @return
+     */
+    public VetAssistant getVetAssistant() {
+        return vetAssistant;
+    }
+
+    /**
+     *
+     * @param vetAssistant
+     */
+    public void setVetAssistant(VetAssistant vetAssistant) {
+        this.vetAssistant = vetAssistant;
+    }
+    
+    /**
+     *
+     * @return
+     */
+    public String executeUpdate() {
+        LOG.info("Inside PetOwnerBean.executeUpdate() with " + vetAssistant.toString());
+        vetAssistantService.update(vetAssistant);
+        return loginBean.getPortalPathByRole("/welcome.xhtml");
+    }
+    
+    
     
     
 }

@@ -35,6 +35,9 @@ public class PetOwnerBean extends AbstractJSFBean{
     private LoginBean loginBean;
     private List<Pet> pets;
 
+    /**
+     *
+     */
     public PetOwnerBean() {
     }
 
@@ -45,16 +48,28 @@ public class PetOwnerBean extends AbstractJSFBean{
         pets = petOwener.getPets();
     }
     
+    /**
+     *
+     * @return
+     */
     public String executeUpdate() {
         LOG.info("Inside PetOwnerBean.executeUpdate() with " + petOwener.toString());
         petOwnerService.update(petOwener);
         return loginBean.getPortalPathByRole("/welcome.xhtml");
     }
 
+    /**
+     *
+     * @return
+     */
     public PetOwner getPetOwener() {
         return petOwener;
     }
 
+    /**
+     *
+     * @param petOwener
+     */
     public void setPetOwener(PetOwner petOwener) {
         this.petOwener = petOwener;
     }

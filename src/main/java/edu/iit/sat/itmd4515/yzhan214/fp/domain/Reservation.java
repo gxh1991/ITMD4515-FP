@@ -10,6 +10,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
@@ -22,8 +23,7 @@ import javax.persistence.TemporalType;
 @Entity
 @NamedQueries({
     @NamedQuery(name="Reservation.findById",query="select p from Reservation p where p.id= :id"),
-    @NamedQuery(name = "Reservation.findAll", query = "select r from Reservation r")
-        
+    @NamedQuery(name = "Reservation.findAll", query = "select r from Reservation r"),
 })
 public class Reservation extends BaseEntity implements Serializable{
     
@@ -31,10 +31,13 @@ public class Reservation extends BaseEntity implements Serializable{
     private Date rDate;
     private String description;
     @Enumerated(EnumType.STRING)
-    ReservationStatus rs;
-//    @ManyToOne
-//    private Doctor doctor;
+    ReservationStatus rs;//    private Doctor doctor;
+
+    @ManyToOne
+    private Doctor doctor;
     
+    @ManyToOne
+    private PetOwner petOwner;
 
     
     
@@ -104,6 +107,40 @@ public class Reservation extends BaseEntity implements Serializable{
     public void setRs(ReservationStatus rs) {
         this.rs = rs;
     }
+
+    /**
+     *
+     * @return
+     */
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public PetOwner getPetOwner() {
+        return petOwner;
+    }
+
+    /**
+     *
+     * @param doctor
+     */
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
+
+    /**
+     *
+     * @param petOwner
+     */
+    public void setPetOwner(PetOwner petOwner) {
+        this.petOwner = petOwner;
+    }
+    
+    
 
     @Override
     public String toString() {

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://xmlns.jcp.org/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="reservations" required="true"/>
+        <cc:attribute name="readonly" type="java.lang.Boolean" required="false" default="true" />       
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:dataTable value="#{cc.attrs.reservations}" var="re">
+            <h:column>
+                <f:facet name="header"><h:outputText value="ID"/></f:facet>
+                <h:outputText value="#{re.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Description"/></f:facet>
+                <h:outputText value="#{re.description}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Date"/></f:facet>
+                <h:outputText value="#{re.rDate}">
+                    <f:convertDateTime type="date" dateStyle="short"/>
+                </h:outputText>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="Doctor"/></f:facet>
+                <h:outputText value="#{re.doctor.firstName} #{re.doctor.lastName}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="PetOwner"/></f:facet>
+                <h:outputText value="#{re.petOwner.name}"/>
+            </h:column>
+            <h:column rendered="#{not cc.attrs.readonly}">
+                <h:form><h:commandLink action="#{reservationBean.doUpdate(re)}" value="Update"/></h:form>
+            </h:column>
+            <h:column rendered="#{not cc.attrs.readonly}">
+                <h:form><h:commandLink action="#{reservationBean.doDelete(re)}" value="Delete"/></h:form>
+            </h:column>
+        </h:dataTable>
+    </cc:implementation>
+</html>

@@ -9,11 +9,37 @@
         Welcome | Zhang's Pet Hospital
     </ui:define>    
     <ui:define name="body">
-        <section class="hero">
-            <div class="row">
-                <div class="large-12 columns">
-                </div>
-            </div>
-        </section>
+        <nav class="top-bar" data-topbar="" role="navigation">
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="#">HomePage</a></h1>
+                </li>
+                <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+            <section class="top-bar-section">
+                <!-- Left Nav Section -->
+                <ul class="left">
+                    <li class="name"><a href="signup.xhtml">Sign Up</a></li>
+                    <li class="name"><a href="doctorPortal/welcome.xhtml">Doctor Portal</a></li>
+                    <li class="name"><a href="assistantPortal/welcome.xhtml">Assistant Portal</a></li>
+                    <li class="name"><a href="petownerPortal/welcome.xhtml">PetOwner Portal</a></li>
+                </ul>
+            </section>
+        </nav>
+<div class="row">
+<div class="large-12 columns">
+ 
+<div class="row">
+<div class="large-12 hide-for-small">
+<div id="featured" data-orbit="">
+    <img src="http://cdn.playbuzz.com/cdn/7dd8deae-3e00-4fd3-83be-a306e22e81de/c50bdb2e-95bc-4423-862f-83e949001fbf.jpg" alt="colorpicker"></img>
+    <img src="http://cdn.playbuzz.com/cdn/0079c830-3406-4c05-a5c1-bc43e8f01479/7dd84d70-768b-492b-88f7-a6c70f2db2e9.jpg" alt="colorpicker"></img>
+</div>
+</div>
+</div>
+</div>
+</div>
+        <h5><a href="apidocs/index.html">View Javadoc</a></h5>
     </ui:define>
 </ui:composition>

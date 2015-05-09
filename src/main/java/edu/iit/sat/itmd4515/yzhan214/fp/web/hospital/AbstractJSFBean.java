@@ -15,12 +15,25 @@ import javax.faces.context.Flash;
  */
 public abstract class AbstractJSFBean {
     
+    /**
+     *
+     */
     protected FacesContext facesContext;
+
+    /**
+     *
+     */
     protected Flash flash;
     
+    /**
+     *
+     */
     protected AbstractJSFBean() {
     }
     
+    /**
+     *
+     */
     @PostConstruct
     protected void postContruct() {
         facesContext = FacesContext.getCurrentInstance();

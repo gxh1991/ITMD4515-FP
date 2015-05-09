@@ -39,6 +39,9 @@ public class PetBean extends AbstractJSFBean {
     @EJB
     private PetOwnerService petOwnerService;
 
+    /**
+     *
+     */
     public PetBean() {
     }
 
@@ -49,21 +52,39 @@ public class PetBean extends AbstractJSFBean {
         pet = new Pet();
     }
     
+    /**
+     *
+     * @return
+     */
     public String doCreate() {
         pet = new Pet();
         return "/petownerPortal/pet.xhtml";
     }
 
+    /**
+     *
+     * @param pet
+     * @return
+     */
     public String doUpdate(Pet pet) {
         this.pet = pet;
         return "/petownerPortal/pet.xhtml";
     }
     
+    /**
+     *
+     * @param pet
+     * @return
+     */
     public String doDelete(Pet pet) {
         petService.delete(pet);
         return "welcome.xhtml";
     }
     
+    /**
+     *
+     * @return
+     */
     public String executeSave() {
         if (this.pet.getId() != null) {
             LOG.info("Executing update on " + this.pet.toString());
@@ -97,6 +118,10 @@ public class PetBean extends AbstractJSFBean {
         this.pet = pet;
     }
     
+    /**
+     *
+     * @return
+     */
     public List<String> getClasses() {
         List<PetClass> tmp  = Arrays.asList(PetClass.values());
         List<String> re = new ArrayList<String>();
@@ -106,11 +131,20 @@ public class PetBean extends AbstractJSFBean {
         return re;
     }
     //JSF does not have special support for enum, add a string variable petclass_ to solve this problem
-    public void setPetclass_(String petclass_) {
+
+    /**
+     *
+     * @param petclass_
+     */
+        public void setPetclass_(String petclass_) {
         this.petclass_ = petclass_;
         pet.setPetClass(petclass_);
     }
 
+    /**
+     *
+     * @return
+     */
     public String getPetclass_() {
         return petclass_;
     }

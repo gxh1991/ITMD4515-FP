@@ -29,6 +29,9 @@ public class DoctorBean extends AbstractJSFBean {
     @Inject private LoginBean loginBean;
     @EJB private DoctorService doctorService;
     
+    /**
+     *
+     */
     public DoctorBean() {
     }
     
@@ -39,6 +42,10 @@ public class DoctorBean extends AbstractJSFBean {
         LOG.info("Inside DoctorBean.postConstruct() with " + doctor.toString());
     }
     
+    /**
+     *
+     * @return
+     */
     public String executeUpdate() {
         LOG.info("Inside DoctorBean.executeUpdate() with " + doctor.toString());
         return loginBean.getPortalPathByRole("/welcome.xhtml");

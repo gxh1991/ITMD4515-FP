@@ -140,11 +140,17 @@ public class DatabasePopulator {
         Reservation re2 = new Reservation(new GregorianCalendar(2014, 12, 4).getTime(), "Reservation for Billy");
         re1.setRs(ReservationStatus.Active);
         re2.setRs(ReservationStatus.Active);
+        re1.setDoctor(doctor1);
+        re2.setDoctor(doctor1);
+        re1.setPetOwner(po1);
+        re2.setPetOwner(po2);
         reservationService.create(re1);
         reservationService.create(re2);
         hospital.addReservation(re1);
         hospital.addReservation(re2);
         doctor1.addReservation(re1);
+        po1.getReservations().add(re1);
+        po2.getReservations().add(re2);
         hospitalService.update(hospital);
         doctorService.update(doctor1);
               

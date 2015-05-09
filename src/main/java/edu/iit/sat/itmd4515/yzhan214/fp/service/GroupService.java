@@ -5,6 +5,7 @@
  */
 package edu.iit.sat.itmd4515.yzhan214.fp.service;
 
+import edu.iit.sat.itmd4515.yzhan214.fp.domain.PetOwner;
 import edu.iit.sat.itmd4515.yzhan214.fp.domain.security.Group;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -41,5 +42,11 @@ public class GroupService extends AbstractService<Group> {
     public Group findByUsername(String username) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public Group findByGroupName(String groupname) {
+        return getEntityManager().createNamedQuery("Group.findByGroupName", Group.class).setParameter("groupname", groupname).getSingleResult();
+    }
+    
+    
     
 }

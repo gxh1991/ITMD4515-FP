@@ -14,11 +14,15 @@
 
     <ui:define name="body">
         <div class="large-6 columns">
-            <ezcomp:doctor doctor="#{doctorService.findByUsername(loginBean.remoteUser)}" readonly="true"/>
+            <ezcomp:reservations reservations="#{doctorService.findByUsername(loginBean.remoteUser).reservations}" readonly="false"/>
+        </div>
+        <div class="large-6 columns">
+            <ezcomp:doctor doctor="#{doctorBean.doctor}" readonly="true"/>
         </div>
         <div class="large-6 columns">
             <ezcomp:doctor doctor="#{doctorBean.doctor}" readonly="false" action="#{doctorBean.executeUpdate()}"/>
-        </div>        
+        </div>
+        
     </ui:define>
 
 </ui:composition>
